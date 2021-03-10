@@ -1,12 +1,12 @@
 import './App.css';
-import {SearchBar, SearchCardArea} from "./Components"
+import {SearchBar, SearchCardArea, WeatherCard} from "./Components"
 import { useEffect, useState } from 'react';
 import {FetchData, FilterCities} from "./helpers"
 
 function App() {
   const [cities, setCities] =useState([])
   const [filteredCities, setFilteredCities] = useState([])
-  const [selectedCity, setSelectedCity] = useState("")
+  const [weather, setWeather] = useState("")
 
   useEffect(()=>{
     let cityList = []
@@ -19,7 +19,7 @@ function App() {
     setFilteredCities(FilterCities(cities, search ==="" ? null : search[0].toUpperCase() + search.slice(1).toLowerCase()))
   }
   const FetchWeather = (city) => {
-    FetchData(`http://api.weatherapi.com/v1/current.json?key=19ef5a893eb949d4bbe140550211003&q=${city}`).then((data)=>console.log(data))
+    FetchData(`http://api.weatherapi.com/v1/current.json?key=19ef5a893eb949d4bbe140550211003&q=${city}`).then((data)=>setWeather(data))
   }
   return (
     <div className="App">
@@ -28,6 +28,7 @@ function App() {
         FetchWeather(city)
         setFilteredCities([])
         }} />}
+      <WeatherCard weather={weather}/>
     </div>
   );
 }

@@ -3,9 +3,9 @@ import "./SearchCardArea.scss"
 export const SearchCardArea = ({filteredCities, mySelectedCity}) =>{
     return(
         <div className="card-area-container" >
-            {filteredCities.map((city)=>{
+            {filteredCities.map((city, index)=>{
                 return(
-                    <div className="city-card" onClick={()=>mySelectedCity(city)}>
+                    <div key={index} className="city-card" onClick={()=>mySelectedCity(city)}>
                         {city}
                     </div>
                 )
