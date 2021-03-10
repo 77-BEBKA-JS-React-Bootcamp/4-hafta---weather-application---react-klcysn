@@ -28,7 +28,7 @@ function App() {
         FetchWeather(city)
         setFilteredCities([])
         }} />}
-      <WeatherCard weather={weather}/>
+      {weather && <WeatherCard weather={weather}/>}
     </div>
   );
 }
