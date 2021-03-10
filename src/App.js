@@ -15,14 +15,17 @@ function App() {
     setCities(cityList)
   })
   },[])
-  
+  console.log(filteredCities)
   const Filter = (search) =>{
     setFilteredCities(FilterCities(cities, search ==="" ? null : search[0].toUpperCase() + search.slice(1).toLowerCase()))
   }
   return (
     <div className="App">
       <SearchBar onSearch ={(search) => Filter(search)}/>
-      {filteredCities && <SearchCardArea filteredCities={filteredCities} mySelectedCity={(city)=> setSelectedCity(city)} />}
+      {filteredCities.length !== 0 && <SearchCardArea filteredCities={filteredCities} mySelectedCity={(city)=> {
+        setSelectedCity(city)
+        setFilteredCities([])
+        }} />}
     </div>
   );
 }
