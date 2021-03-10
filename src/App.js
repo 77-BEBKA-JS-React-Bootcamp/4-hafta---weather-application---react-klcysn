@@ -15,15 +15,17 @@ function App() {
     setCities(cityList)
   })
   },[])
-  console.log(filteredCities)
   const Filter = (search) =>{
     setFilteredCities(FilterCities(cities, search ==="" ? null : search[0].toUpperCase() + search.slice(1).toLowerCase()))
+  }
+  const FetchWeather = (city) => {
+    FetchData(`http://api.weatherapi.com/v1/current.json?key=19ef5a893eb949d4bbe140550211003&q=${city}`).then((data)=>console.log(data))
   }
   return (
     <div className="App">
       <SearchBar onSearch ={(search) => Filter(search)}/>
       {filteredCities.length !== 0 && <SearchCardArea filteredCities={filteredCities} mySelectedCity={(city)=> {
-        setSelectedCity(city)
+        FetchWeather(city)
         setFilteredCities([])
         }} />}
     </div>
