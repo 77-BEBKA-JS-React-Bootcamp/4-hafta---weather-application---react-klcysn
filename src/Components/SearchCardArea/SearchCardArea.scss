@@ -1,0 +1,21 @@
+.card-area-container{
+    border: 1px solid gray;
+    width: 76%;
+    // border-radius: 1rem;
+    margin-left: 2.5rem;
+    margin-top: -1rem;
+    background-color: white;
+    max-height: 50vh;
+    overflow-y: scroll;
+}
+
+.city-card{
+
+    border-bottom: 1px solid gray;
+    padding: 0.5rem;
+
+    &:hover{
+        background-color: lightgray;
+        cursor: pointer;
+    }
+}
