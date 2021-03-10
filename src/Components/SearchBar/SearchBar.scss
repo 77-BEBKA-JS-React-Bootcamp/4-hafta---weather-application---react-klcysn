@@ -1,0 +1,47 @@
+.bar-main{
+    background-color: #37D1B2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem;
+}
+
+.bar-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid gray;
+    height: 2rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: ease-in-out all 2s;
+    background-color: white;
+    width: 2rem;
+    margin-bottom: 0;
+}
+
+.bar-container:hover{
+    width: 80%
+}
+
+.search-input{
+    border: none;
+    outline: none;
+    height: 2rem;
+    width: 100%;
+    padding-left: 0.5rem;
+}
+
+.search-input:focus .bar-container{
+    width: 80%;
+}
+
+.fas{
+    padding-left: 0.5rem;
+}
+
+.bar-icon{
+    height: 2rem;
+    width: auto;
+    margin-left: 0.5rem;
+}
